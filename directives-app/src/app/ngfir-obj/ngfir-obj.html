@@ -1,0 +1,15 @@
+<h3>ngFor-Diretives-With Objects-Data</h3>
+<div>
+    <table border="1">
+        <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp Salary</th>
+        </tr>
+        <tr *ngFor= "let emp of emps">
+            <td>{{emp.empid}}</td>
+            <td>{{emp.empname}}</td>
+            <td>{{emp.salary}}</td>
+        </tr>
+    </table>
+</div>
