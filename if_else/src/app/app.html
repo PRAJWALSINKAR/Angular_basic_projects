@@ -1,0 +1,9 @@
+<button (click)="toggle()">
+  {{ show ? 'Hide' : 'Show' }}
+</button>
+
+@if (show) {
+  <p>Welcome to Angular!</p>
+} @else {
+  <p>Content is hidden.</p>
+}
