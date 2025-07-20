@@ -1,26 +1,32 @@
-import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet , FormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule , NgIf],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
-  
-  username : string="";
-  password : string="";
-  msg : string="";
+profileForm = new FormGroup({
+  name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  password: new FormControl('', [Validators.required]),
+  email: new FormControl('', [Validators.required, Validators.email])
+});
 
-   CheakLogin(){
-    if(this.username=="admin" && this.password=="admin123"){
-      this.msg="valid credentials";
-    }
-    else{
-      this.msg="invalid";
-    }
-   }
 
+  submitData() {
+    console.log(this.profileForm.value);
+  }
+  get name() {
+  return this.profileForm.get('name');
+}
+get password() {
+  return this.profileForm.get('password');
+}
+get email() {
+  return this.profileForm.get('email');
+}
 }

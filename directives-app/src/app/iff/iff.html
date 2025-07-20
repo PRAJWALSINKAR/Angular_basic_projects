@@ -1,14 +1,39 @@
 <div>
-    <h4>ngif & else- Directives</h4>
-    <div *ngIf ="status;then template1;else template2">
+  <h4>*ngIf & else - Directives</h4>
 
-    </div>
+  <!-- ngIf with else and then -->
+  <div *ngIf="status; then template1; else template2"></div>
 
-    <ng-template #template1>
-          <h4>Congrajulation</h4>
-    </ng-template>
-  
-    <ng-template #template2>
-        <h4>Better luck next time.....</h4>
-    </ng-template>
+  <ng-template #template1>
+    <h4>🎉 Congratulations!</h4>
+  </ng-template>
+
+  <ng-template #template2>
+    <h4>😢 Better luck next time...</h4>
+  </ng-template>
 </div>
+
+<hr />
+
+
+
+<!-- Conditionally rendered headings -->
+<div *ngIf="block == 0">
+  <h1>Heading 0</h1>
+</div>
+
+<div *ngIf="block == 1">
+  <h1>Heading 1</h1>
+</div>
+
+<div *ngIf="block == 2">
+  <h1>Heading 2</h1>
+</div>
+
+<!-- Optional fallback -->
+<div *ngIf="block > 2">
+  <h1>No heading available</h1>
+</div>
+
+<!-- Button to update block value -->
+<button (click)="update()">Update Block</button>

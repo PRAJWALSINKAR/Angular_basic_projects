@@ -1,0 +1,18 @@
+nav.navbar {
+  display: flex;
+  justify-content: space-between; /* Logo left, links right */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+ul{
+    display: flex;
+
+    list-style-type: none;
+    width: 200px;
+    justify-content: space-between;
+}
+ul li a{
+    text-decoration: none;
+}

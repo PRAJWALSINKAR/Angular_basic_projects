@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // ✅ Import this
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-iff',
-  standalone: true, // ✅ if you're using standalone component
-  imports: [CommonModule], // ✅ Add CommonModule here
-  templateUrl: './iff.html',
-  styleUrls: ['./iff.css']
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './iff.html'
 })
 export class Iff {
+  marks: number = 0;
+  status: boolean = false;
+  block: number = 0;
 
-  marks:number = 0;
-  status:boolean = false;
+  constructor(private cdr: ChangeDetectorRef) {
+    this.status = this.marks >= 35;
+  }
 
-  constructor(){
-    if(this.marks >= 35){
-      this.status = true;
-    }else{
-      this.status=false;
-    }
+  update() {
+    this.block = (this.block + 1) % 4; // 0 -> 1 -> 2 -> 3 -> 0 ...
+    console.log('Block updated:', this.block);
+
+    // ✅ Manually trigger change detection
+    this.cdr.detectChanges();
   }
 }
