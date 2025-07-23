@@ -1,0 +1,10 @@
+<h1>Pass Data to Child Component</h1>
+<h2>the name is : {{userName}}</h2>
+<app-user [user]="userName"></app-user>
+
+<select (change)="onSelectUser($event)">
+  <option value="Anil Sidhu">Anil Sidhu</option>
+  <option value="Sam">Sam</option>
+  <option value="Peter">Peter</option>
+  <option value="Tony">Tony</option>
+</select>

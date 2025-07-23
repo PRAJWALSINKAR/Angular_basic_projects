@@ -1,0 +1,4 @@
+<h2>Original Amount: {{ amount }}</h2>
+<h2>In INR: {{ amount | currencyConverter:'₹' }}</h2>
+<h2>In USD: {{ amount | currencyConverter:'$' }}</h2>
+<h2>In Euro: {{ amount | currencyConverter:'€' }}</h2>
